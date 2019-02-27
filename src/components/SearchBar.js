@@ -4,17 +4,19 @@ class SearchBar extends React.Component {
     state = {term: ''};
 
 
-    onInputChange = () => {
-
+    onInputChange = (event) => {
+        this.setState({term: event.target.value});
     }
 
-
-
-
+    onFormSubmit = (event) => {
+        event.preventDefault();
+        //TODO: make sure to call the callback fn from parent component
+    }
+    
   render() {
     return (
       <div className="search-bar ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label>Video Search</label>
             <input 
